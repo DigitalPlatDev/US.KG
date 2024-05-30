@@ -1,6 +1,6 @@
 ---
-name: KYC
-about: GitHub KYC
+name: GitHub KYC
+about: GitHub KYC Template
 title: ''
 labels: ''
 assignees: ''
@@ -17,7 +17,7 @@ Ensure your GitHub account meets the following requirements:
 - [ ] I understand that GitHub KYC requires a waiting period for review.
 
 **Your Account Details (US.KG NIC Panel):**
-- **Your full name:**
-- **Username:**
-- **Account Registration Email:**
-- **Reason for Registering the .US.KG Domain Name:**
+- Your full name: 
+- Username: 
+- Account Registration Email: 
+- Reason for Registering the .US.KG Domain Name:
