@@ -22,3 +22,5 @@ Ensure your GitHub account meets the following requirements:
 - Username: 
 - Account Registration Email: 
 - Reason for Registering the .US.KG Domain Name:
+
+After submission, we will process your request ASAP.
