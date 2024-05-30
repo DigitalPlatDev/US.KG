@@ -11,6 +11,7 @@ assignees: ''
 
 Ensure your GitHub account meets the following requirements:
 
+- [ ] I have starred this repository (required).
 - [ ] Not a new GitHub account; it already has some repositories and stars.
 - [ ] This is my first US.KG NIC Panel account.
 - [ ] I promise not to use the domain name for criminal or abusive purposes.
