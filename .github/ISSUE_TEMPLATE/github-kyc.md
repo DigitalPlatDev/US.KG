@@ -8,10 +8,10 @@ assignees: ''
 
 ### KYC Using Your GitHub Account
 
-We use automated scripts to approve requests. Please make sure your GitHub account meets the following requirements to avoid delays:
+We use automated scripts to approve requests. Please make sure your GitHub account meets the following requirements (all are required):
 
-- [ ] I have starred this repository (required).
-- [ ] The issue title must be: Request GitHub KYC - <Your US.KG Panel registered email>. This ensures our automated script can detect your registered email.
+- [ ] I have starred this repository.
+- [ ] The issue title must be: Request GitHub KYC - Your US.KG Panel registered email. This ensures our automated script can detect your registered email.
 - [ ] This is not a new GitHub account; it has existing repositories and stars.
 - [ ] This is my first US.KG NIC Panel account.
 - [ ] I promise not to use the domain name for criminal or abusive purposes.
