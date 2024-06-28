@@ -1,6 +1,6 @@
 # US.KG – A FREE NAME FOR EVERYONE
 [Registry Website (https://nic.us.kg/)](https://nic.us.kg/)
-#### Due to high demand, the KYC process on GitHub requires a longer review time. If you need faster review, please consider donating $1 and sending an email; it is usually processed within a few hours.
+#### Your request is typically processed within 15 minutes after submission.
 ## Domain names no longer cost
 Now, regardless of your project, whether you’re an individual or an organization, you can easily register and own your own *.US.KG domain name, 100% completely free. You can host your website with any third-party DNS service you like, such as Cloudflare, FreeDNS by afraid, hostry…
 
