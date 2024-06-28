@@ -15,7 +15,6 @@ We use automated scripts to approve requests. Please make sure your GitHub accou
 - [ ] This is not a new GitHub account; it has existing repositories and stars.
 - [ ] This is my first US.KG NIC Panel account.
 - [ ] I promise not to use the domain name for criminal or abusive purposes.
-- [ ] I understand that GitHub KYC requires a waiting period for review.
 
 **Your Account Details (US.KG NIC Panel):**
 
