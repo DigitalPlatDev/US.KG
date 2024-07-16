@@ -19,7 +19,7 @@ We use automated scripts to approve requests. Please make sure your GitHub accou
 **Your Account Details (US.KG NIC Panel):**
 
 Please fill out the following information; otherwise, your request will not be processed:
-- Your full name: 
+
 - Username: 
 - Account Registration Email: 
 - Reason for Registering the .US.KG Domain Name:
