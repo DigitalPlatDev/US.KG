@@ -1,7 +1,7 @@
 ---
 name: GitHub KYC
 about: GitHub KYC Template
-title: ''
+title: ' Request GitHub KYC - Your US.KG Panel registered email'
 labels: ''
 assignees: ''
 ---
@@ -20,7 +20,7 @@ We use automated scripts to approve requests. Please make sure your GitHub accou
 
 Please fill out the following information; otherwise, your request will not be processed:
 
-- Username: 
-- Account Registration Email: 
-- Reason for Registering the .US.KG Domain Name:
+- Username: leo_xk93
+- Account Registration Email: leo_xk93@hotmail.com
+- Reason for Registering the .US.KG Domain Name: Study
 
