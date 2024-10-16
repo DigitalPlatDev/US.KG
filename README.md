@@ -1,5 +1,8 @@
 # US.KG – A FREE NAME FOR EVERYONE
 [Registry Website (https://nic.us.kg/)](https://nic.us.kg/)
+### ⚠️⚠️⚠️ On October 16, 2024 (UTC), we received a warning from the .KG registry due to subdomains being used for large number of malicious activities (including Bank Hacking). As a result, we have temporarily suspended registrations. We will be upgrading our KYC process and reopening registrations soon. In the meantime, all reviews are on hold, so please refrain from submitting any new applications. ⚠️⚠️⚠️
+
+
 #### Your request is typically processed within 15 minutes after submission.
 #### Please DO NOT download any untrusted binary files from "issues" and run them, they are viruses! We will not ask you to download any files
 ## Domain names no longer cost
