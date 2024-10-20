@@ -4,6 +4,7 @@ about: GitHub KYC Template
 title: ''
 labels: ''
 assignees: ''
+
 ---
 
 ### KYC Using Your GitHub Account
@@ -23,4 +24,3 @@ Please fill out the following information; otherwise, your request will not be p
 - Username: 
 - Account Registration Email: 
 - Reason for Registering the .US.KG Domain Name:
-
