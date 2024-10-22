@@ -1,6 +1,7 @@
 # US.KG – A FREE NAME FOR EVERYONE
 [Registry Website (https://nic.us.kg/)](https://nic.us.kg/)
-### ⚠️⚠️⚠️ On October 16, 2024 (UTC), we received a warning from the .KG registry due to subdomains being used for large number of malicious activities (including Bank Hacking). As a result, we have temporarily suspended registrations. We will be upgrading our KYC process and reopening registrations soon. In the meantime, all reviews are on hold, so please refrain from submitting any new applications. ⚠️⚠️⚠️ (Accounts that have already completed KYC and comply with the Acceptable Use Policy will not be affected in any way, and you will never be charged. All activated accounts are promised to remain free forever.)
+### ⚠️⚠️⚠️ starting from October 22, 2024, if your email domain is on the approved list, you can continue using GitHub's free KYC option (if you qualify, the GitHub KYC option below should be available).
+### On October 16, 2024 (UTC), we received a warning from the .KG registry due to subdomains being used for large number of malicious activities (including Bank Hacking). As a result, we have temporarily suspended registrations. We will be upgrading our KYC process and reopening registrations soon. In the meantime, all reviews are on hold, so please refrain from submitting any new applications.
 
 
 #### Your request is typically processed within 15 minutes after submission.
