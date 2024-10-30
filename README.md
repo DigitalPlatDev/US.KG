@@ -1,14 +1,52 @@
-# US.KG – A FREE NAME FOR EVERYONE
-[Registry Website (https://nic.us.kg/)](https://nic.us.kg/)
-### ⚠️⚠️⚠️ starting from October 22, 2024, if your email domain is on the approved list, you can continue using GitHub's free KYC option (if you qualify, the GitHub KYC option below should be available).
-### On October 16, 2024 (UTC), we received a warning from the .KG registry due to subdomains being used for large number of malicious activities (including Bank Hacking). As a result, we have temporarily suspended registrations. We will be upgrading our KYC process and reopening registrations soon. In the meantime, all reviews are on hold, so please refrain from submitting any new applications.
+# DigitalPlat FreeDomain – **Your Free Domain Awaits!**
 
+## 🌐 Say Goodbye to Domain Fees
 
-#### Your request is typically processed within 15 minutes after submission.
-#### Please DO NOT download any untrusted binary files from "issues" and run them, they are viruses! We will not ask you to download any files
-## Domain names no longer cost
-Now, regardless of your project, whether you’re an individual or an organization, you can easily register and own your own *.US.KG domain name, 100% completely free. You can host your website with any third-party DNS service you like, such as Cloudflare, FreeDNS by afraid, hostry…
+Welcome to **DigitalPlat FreeDomain**, where we believe everyone deserves a digital identity. Whether you're an individual, a small business, or an organization, we’re offering free domain names to bring your ideas to life – no strings attached!
 
-At DigitalPlat US.KG, we are dedicated to changing the internet landscape by providing free domain names to individuals and organizations who cannot afford them. Our goal is to make it possible for everyone to get their first domain and build their first website, without the need to pay high registration fees to some NICs. Everyone deserves the chance to have an online presence, and with DigitalPlat US.KG, we are making that a reality.
+With FreeDomain, you’re free to register a unique domain and host it with your favorite DNS provider, like Cloudflare, FreeDNS by Afraid.org, or Hostry. Get online with complete freedom, and keep your wallet happy.
 
-For more information, Please go to our registry website: [Registry Website (https://nic.us.kg/)](https://nic.us.kg/)
+### Why Free Domains?
+
+At **FreeDomain**, we’re on a mission to make the web more accessible. We believe that the cost of a domain shouldn’t hold anyone back from creating a website. Our goal is to make the internet an open space where everyone can have their own place online, regardless of budget.
+
+DigitalPlat is fiscally sponsored by The Hack Foundation, a 501(c)(3) nonprofit (EIN: 81-2908499).
+
+---
+
+### 🌍 Available Domain Extensions
+
+- **.US.KG** (Due to high levels of misuse, this domain now requires approval. You need a email suffix from approved list (like @gmail.com) for registration, and please use your GitHub account to submit an issue for approval. Each approved and verified account can enjoy up to three free domain names!)
+
+_(More extensions coming soon!)_
+
+---
+
+### 🌍 Ready to Claim Your Free Domain?
+
+Jump in and register your domain by visiting our site:
+
+➡️ [US.KG Registry](https://nic.us.kg/)
+
+---
+
+### 🌟 Trusted by Thousands
+
+With over 80,000 domains already registered, DigitalPlat FreeDomain is a trusted choice for individuals and organizations alike. Join our growing community and claim your own free domain today!
+
+---
+
+### 💰 Help Us Keep Domains Free
+
+DigitalPlat is a nonprofit, and every little bit helps us keep offering free domains to more people. If you’d like to support us, even a $1 donation makes a difference!
+
+All donations are handled by The Hack Foundation and used strictly for nonprofit purposes, following US IRS regulations under section 501(c)(3). Your support helps us keep the internet open and accessible for everyone.
+
+[Donate Us Today! (Tax exemption in the US)](https://hcb.hackclub.com/donations/start/digitalplat)
+
+---
+
+### ⏭️ What's next
+We might introduce more domain options and free hosting in the future to help as many people as possible! 
+
+**We can’t wait to see what you build!**
