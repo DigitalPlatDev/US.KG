@@ -11,7 +11,7 @@ assignees: ''
 
 Please make sure your GitHub account meets the following requirements (all are required):
 
-- [ ] The issue title must be: Request GitHub KYC - Your US.KG Panel registered username. This ensures our automated script can detect your registered username.
+- [ ] The issue title must be: Request GitHub KYC - Your US.KG Panel registered username. This ensures our automated script can detect your registered username. (For example, your title should be:  **Request GitHub KYC-example**)
 - [ ] This is not a new GitHub account; it has existing repositories and stars.
 - [ ] This is my first US.KG NIC Panel account.
 - [ ] I promise not to use the domain name for criminal or abusive purposes. 
