@@ -32,7 +32,7 @@ Jump in and register your domain by visiting our site:
 
 ### 🌟 Trusted by Thousands
 
-With over 80,000 domains already registered, DigitalPlat FreeDomain is a trusted choice for individuals and organizations alike. Join our growing community and claim your own free domain today!
+With over 90,000 domains already registered, DigitalPlat FreeDomain is a trusted choice for individuals and organizations alike. Join our growing community and claim your own free domain today!
 
 ---
 
