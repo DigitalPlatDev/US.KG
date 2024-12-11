@@ -36,6 +36,12 @@ With over 100,000 domains already registered, DigitalPlat FreeDomain is a truste
 
 ---
 
+### 🤝 Join Our Community!
+
+🆕 Join the official [DigitalPlat FreeDomain Telegram group](https://t.me/digitalplatdomain) or [Discord server](https://discord.gg/7mrqAAqcSa) today! Be the first to know about the latest updates and happenings! Got questions? Facing challenges? Or simply want to show off your awesome builds? Don’t wait—become part of our community now! 🚀
+
+---
+
 ### 💰 Help Us Keep Domains Free
 
 DigitalPlat is a nonprofit, and every little bit helps us keep offering free domains to more people. If you’d like to support us, even a $1 donation makes a difference!
