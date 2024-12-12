@@ -38,11 +38,7 @@ With over 100,000 domains already registered, DigitalPlat FreeDomain is a truste
 
 ### ❔ FAQ
 
-#### How many free domain names can be registered? 🚀  
-Currently, the limit is 3. Due to the high volume of domain abuse, we are no longer reviewing applications to expand the domain registration limit. However, we may reopen the option to request limit expansions in the future. In the meantime, you can set up subdomains via your DNS panel (e.g., example.foo.us.kg).
-
-#### I submitted a GitHub issue, but it was not reviewed.  
-Due to GitHub's API rate limits, the system may impose restrictions when a large number of issues are submitted. If you don't receive a response or see any action after submitting an issue, please be patient as we review your request. We kindly ask that you refrain from submitting the issue multiple times.
+Check [FAQ Page](./documents/faq.md)
 
 ---
 
