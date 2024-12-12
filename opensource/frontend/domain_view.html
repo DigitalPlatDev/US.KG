@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Your Domain: {{domain_name}}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f3f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 900px;
+            margin: 20px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+
+        .nav-tabs .nav-link {
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .tab-content {
+            padding: 20px;
+            background-color: #f1f3f4;
+            border-radius: 8px;
+            margin-left: 20px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            background-color: #1a73e8;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #185abc;
+        }
+
+        .btn-warning {
+            background-color: #fbbc04;
+            color: #ffffff;
+        }
+
+        .btn-warning:hover {
+            background-color: #e37400;
+        }
+
+        .btn-danger {
+            background-color: #ea4335;
+            color: #ffffff;
+        }
+
+        .btn-danger:hover {
+            background-color: #c5221f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-semibold text-gray-900">Manage Your Domain: {{domain_name}}</h1>
+        </div>
+        <div class="bg-blue-100 text-gray-900 p-4 rounded-lg mb-6">
+            <h3 class="font-medium">Your Domain Information:</h3>
+            <ul class="list-disc pl-6 mt-2 space-y-2">
+                <li><strong>Name:</strong> {{domain_name}}</li>
+                <li><strong>Administrator:</strong> {{fullname}} ({{username}})</li>
+                <li><strong>Renew:</strong> Always Free, renewal for the next year if there's less than 180 days left until expiry</li>
+                <li><strong>Registration Date:</strong> {{regdate_show}}</li>
+                <li><strong>Expire Date:</strong> {{expdate_show}}</li>
+            </ul>
+        </div>
+        <div class="d-flex">
+            <ul class="nav flex-column nav-tabs" id="myTab" role="tablist" style="width: 180px;">
+                <li class="nav-item">
+                    <a class="nav-link active" id="ns-records-tab" data-toggle="tab" href="#ns-records" role="tab" aria-controls="ns-records" aria-selected="true">NS Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="renew-tab" data-toggle="tab" href="#renew" role="tab" aria-controls="renew" aria-selected="false">Renew</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="whois-privacy-tab" data-toggle="tab" href="#whois-privacy" role="tab" aria-controls="whois-privacy" aria-selected="false">WHOIS Privacy Protection</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="cancel-domain-tab" data-toggle="tab" href="#cancel-domain" role="tab" aria-controls="cancel-domain" aria-selected="false">Cancel This Domain</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="ns-records" role="tabpanel" aria-labelledby="ns-records-tab">
+                    <p>The DNS server needs to be valid for the resolution to take effect and display correctly; otherwise, it will remain blank. Please allow up to several minutes for the NS records to update and appear after submission.</p>
+                    <form action="/panel/nameserver/update" method="GET">
+                        <div class="form-group">
+                            <label for="ns1"><span class="text-red-500">*</span> Name Server 1</label>
+                            <input type="text" name="ns1" id="ns1" value="{{ns1}}" placeholder="NS1" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="ns2"><span class="text-red-500">*</span> Name Server 2</label>
+                            <input type="text" name="ns2" id="ns2" value="{{ns2}}" placeholder="NS2" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="ns3">Name Server 3</label>
+                            <input type="text" name="ns3" id="ns3" value="{{ns3}}" placeholder="NS3" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="ns4">Name Server 4</label>
+                            <input type="text" name="ns4" id="ns4" value="{{ns4}}" placeholder="NS4" class="form-control">
+                        </div>
+                        <input type="hidden" name="name" value="{{domain_name}}">
+                        <button type="submit" class="btn">Update</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="renew" role="tabpanel" aria-labelledby="renew-tab">
+                    <form action="/panel/renew/update" method="GET" target="_blank" class="mt-4">
+                        <input type="hidden" name="name" value="{{domain_name}}">
+                        <button type="submit" class="btn">Renew (if there's less than 180 days left until expiry)</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="whois-privacy" role="tabpanel" aria-labelledby="whois-privacy-tab">
+                    <p>WHOIS Privacy Protection is a service to protect your personal information from being publicly available through the WHOIS database. If you enable this service, your information won't be accessible through WHOIS queries.</p>
+                    <h5 class="mt-2">Current Status: <span class="badge text-bg-{{whois_protection_badge}}">{{whois_protection_status}}</span></h5>
+                    <form action="/panel/manager/enable_whois_protection" method="GET" target="_blank" class="mt-4">
+                        <input type="hidden" name="domain" value="{{domain_name}}">
+                        <button type="submit" class="btn btn-warning">Enable (After enabling, your information won't be accessible through WHOIS queries)</button>
+                    </form>
+                    <form action="/panel/manager/disable_whois_protection" method="GET" target="_blank" class="mt-4">
+                        <input type="hidden" name="domain" value="{{domain_name}}">
+                        <button type="submit" class="btn btn-warning">Disable WHOIS Protection</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="cancel-domain" role="tabpanel" aria-labelledby="cancel-domain-tab">
+                    <p>To free up unused domain names, we're introducing a new feature: you can now cancel domain names that you no longer need (i.e., delete this domain). Once a domain is canceled, your registration limit will be reset, allowing you to register new domains. When you request a cancellation, your domain will be immediately removed from the DNS root. After the global DNS sync completes (typically within 5-30 minutes), the domain name will be available for registration by you or anyone else. Please note that once you cancel a domain name, you will lose all management rights to it. Once released, anyone can register the domain name. Proceed with caution, as we will not be able to help you retrieve the domain name once it is canceled.</p>
+                    <button type="button" class="btn btn-danger" onclick="showCancelModal()">Danger Zone: Cancel this domain</button>
+
+                    <!-- Cancel Domain Modal -->
+                    <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="cancelModalLabel">Confirm Domain Cancellation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>To confirm the cancellation of the domain, please enter the domain name <strong>{{domain_name}}</strong> below:</p>
+                                    <input type="text" id="confirmDomainName" class="form-control" placeholder="Enter domain name">
+                                    <p class="mt-3 text-danger">Warning: This action is irreversible. Once canceled, the domain will be immediately available for registration by others.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="/panel/manager/cancel_domain" method="GET" id="cancelDomainForm" onsubmit="handleCancelDomainSubmit(event)">
+                                        <input type="hidden" name="domain" value="{{domain_name}}">
+                                        <button type="submit" class="btn btn-danger" id="confirmCancelBtn" disabled>Cancel Domain</button>
+                                    </form>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function showCancelModal() {
+            $('#cancelModal').modal('show');
+        }
+
+        document.getElementById('confirmDomainName').addEventListener('input', function () {
+            const confirmBtn = document.getElementById('confirmCancelBtn');
+            if (this.value === '{{domain_name}}') {
+                confirmBtn.removeAttribute('disabled');
+            } else {
+                confirmBtn.setAttribute('disabled', 'true');
+            }
+        });
+
+        function handleCancelDomainSubmit(event) {
+            event.preventDefault();
+            const confirmBtn = document.getElementById('confirmCancelBtn');
+            confirmBtn.setAttribute('disabled', 'true');
+            confirmBtn.textContent = 'Please wait...';
+            document.getElementById('cancelDomainForm').submit();
+        }
+    </script>
+</body>
+
+</html>

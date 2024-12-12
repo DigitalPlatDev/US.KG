@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US.KG Domain Registration</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #edf2f7;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 20px;
+            color: #1a202c;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .alert-light {
+            background-color: #f8f9fa;
+            color: #818182;
+        }
+        .domain-info-heading {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .domain-info-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .domain-info-list li {
+            margin-bottom: 5px;
+        }
+        .domain-info-list li strong {
+            width: 150px;
+            display: inline-block;
+        }
+        .domain-name,
+        .username {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">US.KG Domain Registration - Checkout</div>
+    </div>
+    <div class="container mx-auto px-4">
+        <h2 class="text-xl font-bold mb-4">Domain Checkout</h2>
+        <div class="alert alert-success" role="alert">
+            {{regtips}}
+        </div>
+        <div class="alert alert-light" role="alert">
+            <h3 class="domain-info-heading">Your domain information:</h3>
+            <ul class="domain-info-list">
+                <li><strong>Name:</strong> <span class="domain-name">{{domain_name}}.us.kg</span></li>
+                <li><strong>Administrator:</strong> <span class="username">{{username}}</span></li>
+                <li><strong>Price:</strong> Always free, with a default registration period of one year (365 days). Renewal is available for the next year when there are fewer than 180 days remaining until expiry. </li>
+            </ul>
+        </div>
+        
+        <form id="registrationForm" action="/panel/register/buy" method="POST" class="space-y-4">
+            <div>
+                <label for="ns1" class="block text-gray-700 font-bold mb-2"><span class="text-red-500">*</span> Name Server 1</label>
+                <input type="text" name="ns1" id="ns1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="NS1" required>
+            </div>
+            <div>
+                <label for="ns2" class="block text-gray-700 font-bold mb-2"><span class="text-red-500">*</span> Name Server 2</label>
+                <input type="text" name="ns2" id="ns2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="NS2" required>
+            </div>
+            <div>
+                <label for="ns3" class="block text-gray-700 font-bold mb-2">Name Server 3</label>
+                <input type="text" name="ns3" id="ns3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="NS3">
+            </div>
+            <div>
+                <label for="ns4" class="block text-gray-700 font-bold mb-2">Name Server 4</label>
+                <input type="text" name="ns4" id="ns4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="NS4">
+            </div>
+            <input type="hidden" name="name" id="name" value="{{domain_name}}" required>
+            <button id="registerButton" type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Register!</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            var registerButton = document.getElementById("registerButton");
+            registerButton.disabled = true;
+            registerButton.textContent = "Submitting...";
+        });
+    </script>
+            <script>
+                window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+            </script>
+            <script defer src="/_vercel/insights/script.js"></script>
+            <script>
+                window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+            </script>
+            <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

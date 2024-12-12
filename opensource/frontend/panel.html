@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpeg" href="/static/img/logo.jpg">
+    <title>DigitalPlat Domain Panel</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #111827;
+            color: #f9fafb;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            transition: width 0.3s, transform 0.3s;
+            overflow: hidden;
+        }
+        .sidebar.collapsed {
+            width: 70px;
+        }
+        .sidebar a {
+            color: #9ca3af;
+            text-decoration: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sidebar a i {
+            width: 30px;
+            text-align: center;
+        }
+        .sidebar.collapsed a {
+            justify-content: center;
+        }
+        .sidebar.collapsed a:hover {
+            background-color: #1f2937;
+            color: #ffffff;
+        }
+        .sidebar a:hover {
+            background-color: #1f2937;
+            color: #ffffff;
+        }
+        .sidebar .brand-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        .sidebar .brand-logo img {
+            border-radius: 50%;
+            width: 50px;
+        }
+        .sidebar.collapsed .brand-logo {
+            justify-content: center;
+        }
+        .sidebar.collapsed .brand-logo span,
+        .sidebar.collapsed .nav-text {
+            display: none;
+        }
+        .collapse-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            background: none;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: color 0.3s;
+            margin-bottom: 20px;
+        }
+        .collapse-btn:hover {
+            color: #ffffff;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+            transition: margin-left 0.3s;
+        }
+        .main-content.expanded {
+            margin-left: 70px;
+        }
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #1f2937;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        .navbar .dropdown-menu {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            padding: 10px;
+        }
+        .footer {
+            background-color: #111827;
+            color: #f9fafb;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                transform: translateY(-100%);
+                top: 0;
+                left: 0;
+                z-index: 10;
+                transition: transform 0.3s;
+            }
+            .sidebar.visible {
+                transform: translateY(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9;
+            }
+            .overlay.visible {
+                display: block;
+            }
+        }
+        .loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            z-index: 9999;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" onclick="toggleSidebar()"></div>
+    <div id="loading-spinner" class="loading-spinner"></div>
+    <aside class="sidebar">
+        <div class="brand-logo">
+            <img src="/static/img/logo.jpg" alt="USKG LOGO">
+            <span class="text-lg font-semibold">DigitalPlat FreeDomain Panel</span>
+        </div>
+        <button class="collapse-btn" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <a href="#" onclick="loadPage(this, '/panel/overview'); return false;" class="active">
+                <i class="fas fa-tachometer-alt"></i> <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="#" onclick="loadPage(this, '/panel/domains'); return false;">
+                <i class="fas fa-globe"></i> <span class="nav-text">My Domains</span>
+            </a>
+            <a href="#" onclick="loadPage(this, '/panel/register'); return false;">
+                <i class="fas fa-edit"></i> <span class="nav-text">Domain Registration</span>
+            </a>
+            <a href="#" onclick="loadPage(this, '/auth/user/edit'); return false;">
+                <i class="fas fa-user"></i> <span class="nav-text">My Account</span>
+            </a>
+            <a href="#" onclick="loadPage(this, '/whois/ui'); return false;">
+                <i class="fas fa-search"></i> <span class="nav-text">Whois</span>
+            </a>
+            <a href="https://hcb.hackclub.com/donations/start/digitalplat">
+                <i class="fas fa-donate"></i> <span class="nav-text">Donate</span>
+            </a>
+            <a href="https://forms.gle/sUmyMh154Q3G1PU56">
+                <i class="fas fa-exclamation"></i> <span class="nav-text">Report Abuse</span>
+            </a>
+            <a href="https://forms.gle/ASrRCviu16wSc7bc6">
+                <i class="fas fa-arrows-alt"></i> <span class="nav-text">Need more domains?</span>
+            </a>
+            <a href="https://nic.us.kg">
+                <i class="fas fa-globe"></i> <span class="nav-text">US.KG NIC</span>
+            </a>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i> <span class="nav-text">Logout</span>
+            </a>
+        </nav>
+    </aside>
+    <div class="main-content">
+        <nav class="navbar">
+            <div>
+                <a href="/">US.KG</a>
+                <a href="/panel/domains">Domain List</a>
+                <a href="/panel/register">Register</a>
+                <a href="/auth/user/edit">My Account</a>
+            </div>
+            <button class="collapse-btn navbar-toggle-btn md:hidden" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div class="content-wrapper">
+            <iframe src="/panel/overview" id="content-frame" frameborder="0" scrolling="auto" style="width: 100%; height: calc(100vh - 60px);" allowfullscreen onload="hideLoadingSpinner()"></iframe>
+        </div>
+    </div>
+    <footer class="footer">
+        <div>
+            <b>US.KG Panel</b> Open in <a href="#" onclick="openPageInNewTab()" class="text-blue-500">New Tab</a> <a href="#" onclick="toggleFullscreen()" class="text-blue-500">Fullscreen</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.overlay');
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                sidebar.classList.toggle('visible');
+                overlay.classList.toggle('visible');
+            } else {
+                sidebar.classList.toggle('collapsed');
+                const mainContent = document.querySelector('.main-content');
+                mainContent.classList.toggle('expanded');
+            }
+        }
+
+        function loadPage(link, url) {
+            const navLinks = document.querySelectorAll('.sidebar a');
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            link.classList.add('active');
+
+            const contentFrame = document.getElementById('content-frame');
+            showLoadingSpinner();
+
+            contentFrame.src = url;
+
+            // Hide sidebar and overlay on mobile after selecting a page
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const overlay = document.querySelector('.overlay');
+                sidebar.classList.remove('visible');
+                overlay.classList.remove('visible');
+            }
+        }
+
+        function showLoadingSpinner() {
+            const loadingSpinner = document.getElementById('loading-spinner');
+            loadingSpinner.style.display = 'block';
+        }
+
+        function hideLoadingSpinner() {
+            const loadingSpinner = document.getElementById('loading-spinner');
+            loadingSpinner.style.display = 'none';
+        }
+
+        function openPageInNewTab() {
+            const iframeUrl = document.getElementById('content-frame').src;
+            window.open(iframeUrl);
+        }
+
+        function toggleFullscreen() {
+            const iframe = document.getElementById('content-frame');
+            if (iframe.requestFullscreen) {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    iframe.requestFullscreen();
+                }
+            } else if (iframe.mozRequestFullScreen) {
+                if (document.mozFullScreenElement) {
+                    document.mozCancelFullScreen();
+                } else {
+                    iframe.mozRequestFullScreen();
+                }
+            } else if (iframe.webkitRequestFullscreen) {
+                if (document.webkitFullscreenElement) {
+                    document.webkitExitFullscreen();
+                } else {
+                    iframe.webkitRequestFullscreen();
+                }
+            } else if (iframe.msRequestFullscreen) {
+                if (document.msFullscreenElement) {
+                    document.msExitFullscreen();
+                } else {
+                    iframe.msRequestFullscreen();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const contentFrame = document.getElementById('content-frame');
+            showLoadingSpinner();
+            if (contentFrame) {
+                contentFrame.addEventListener('load', function () {
+                    hideLoadingSpinner();
+                });
+            }
+        });
+    </script>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
+

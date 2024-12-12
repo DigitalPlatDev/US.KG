@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DigitalPlat Domain Dashboard</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f4f6;
+      padding: 20px;
+    }
+    .btn {
+      background-color: #1f2937;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #374151;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-semibold">Welcome to DigitalPlat Domain Dashboard!</h1>
+  </header>
+  
+  <main class="container mx-auto px-4">
+    
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+      <div class="alert alert-primary bg-blue-100 text-blue-800 p-4 rounded-md shadow-md mb-6">
+        {{notice}}
+      </div>
+      <div class="alert alert-primary bg-blue-100 text-blue-800 p-4 rounded-md shadow-md mb-6">
+        🆕 Join the official <a href="https://t.me/digitalplatdomain" target="_blank" class="text-blue-600 hover:underline">DigitalPlat FreeDomain Telegram group</a> or <a href="https://discord.gg/7mrqAAqcSa" target="_blank" class="text-blue-600 hover:underline">Discord server</a> today! Be the first to know about the latest updates and happenings! Got questions? Facing challenges? Or simply want to show off your awesome builds? Don’t wait—become part of our community now! 🚀
+      </div>      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="small-box bg-blue-600 text-white p-6 rounded-md shadow-md flex items-center justify-between">
+          <div>
+            <h3 class="text-3xl font-semibold">{{domains}}</h3>
+            <p class="mt-2">My domains</p>
+          </div>
+          <div class="icon text-5xl opacity-75">
+            <i class="fas fa-cloud"></i>
+          </div>
+        </div>
+        
+        <div class="small-box bg-green-600 text-white p-6 rounded-md shadow-md flex items-center justify-between">
+          <div>
+            <h3 class="text-3xl font-semibold">{{max_reg}}</h3>
+            <p class="mt-2">Domain name maximum registration limit</p>
+            <p class="mt-1 text-sm">Need more? No worries! Click the "Need more domains?" button on the left side of the panel. (Cause we are non-profit!)</p>
+          </div>
+          <div class="icon text-5xl opacity-75">
+            <i class="fas fa-info"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-8">
+      <div class="card bg-white shadow-md rounded-md overflow-hidden mb-6">
+        <div class="card-header bg-gray-800 text-white p-4">
+          <h3 class="text-xl">My Domains:</h3>
+        </div>
+        <div class="card-body p-4">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr>
+                <th class="py-2 px-4 bg-gray-100 text-left">#</th>
+                <th class="py-2 px-4 bg-gray-100 text-left">Domain</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for domain in domains_list %}
+              <tr>
+                <td class="border-t py-2 px-4">{{ loop.index }}</td>
+                <td class="border-t py-2 px-4">{{ domain }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="card bg-white shadow-md rounded-md overflow-hidden mb-6">
+        <div class="card-header bg-gray-800 text-white p-4">
+          <h3 class="text-xl">Expire soon:</h3>
+        </div>
+        <div class="card-body p-4">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr>
+                <th class="py-2 px-4 bg-gray-100 text-left">#</th>
+                <th class="py-2 px-4 bg-gray-100 text-left">Domain</th>
+                <th class="py-2 px-4 bg-gray-100 text-left">Expire Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for key, value in expire_soon.items() %}
+              <tr>
+                <td class="border-t py-2 px-4">{{ loop.index }}</td>
+                <td class="border-t py-2 px-4">{{ key }}</td>
+                <td class="border-t py-2 px-4">{{ value }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">What are you looking for?</h2>
+      <div class="flex flex-wrap gap-4 mb-6">
+        <button class="btn" onclick="window.location.href = '/panel/register';">Domain name registration</button>
+        <button class="btn" onclick="window.location.href = '/panel/domains';">Manage my domains</button>
+      </div>
+      
+      <h2 class="text-2xl font-semibold mb-4">My Account / WHOIS Information</h2>
+      <div class="card bg-white shadow-md rounded-md overflow-hidden mb-6">
+        <div class="card-body p-4">
+          <table class="min-w-full bg-white">
+            <tbody>
+              <tr>
+                <td class="py-2 px-4 bg-gray-100 text-left font-semibold">Username:</td>
+                <td class="py-2 px-4 bg-white">{{username}}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 bg-gray-100 text-left font-semibold">Fullname:</td>
+                <td class="py-2 px-4 bg-white">{{fullname}}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 bg-gray-100 text-left font-semibold">Email:</td>
+                <td class="py-2 px-4 bg-white">{{email}}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 bg-gray-100 text-left font-semibold">Phone:</td>
+                <td class="py-2 px-4 bg-white">{{phone}}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 bg-gray-100 text-left font-semibold">Address:</td>
+                <td class="py-2 px-4 bg-white">{{address}}</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 bg-gray-100 text-left font-semibold">Account ID:</td>
+                <td class="py-2 px-4 bg-white"><b>{{userid}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <button class="btn" onclick="window.location.href = '/auth/user/edit';">Account Information / Edit WHOIS</button>
+        <button class="btn" onclick="window.location.href = '/logout';">Logout</button>
+      </div>
+    </section>
+    
+  </main>
+
+</body>
+</html>

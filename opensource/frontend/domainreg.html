@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US.KG Domain Dashboard</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #edf2f7;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+      transition: all 0.5s ease;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .footer {
+      background-color: #1a202c;
+      color: #cbd5e0;
+      padding: 20px;
+      font-size: 14px;
+      border-radius: 0 0 12px 12px;
+      margin-top: auto;
+      text-align: center;
+    }
+    footer a {
+      color: #63b3ed;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .input-group-prepend {
+      background-color: #edf2f7;
+      border: 1px solid #cbd5e0;
+      padding: 10px;
+      border-radius: 0 5px 5px 0;
+      color: #4a5568;
+    }
+  </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-2xl font-semibold">Get a new domain</h1>
+        <p>By continuing you agree to our <a href="https://nic.us.kg/terms-of-service/">Terms of Service</a>, <a href="https://nic.us.kg/privacy-policy/">Privacy Policy</a> and <a href="https://nic.us.kg/acceptable-use-policy/">Acceptable Use Policy</a></p>
+        <p>Let's check if your domain name is available</p>
+        <form action="/panel/register/check" method="GET">
+            <label class="sr-only" for="name">Domain name</label>
+            <div class="input-group mb-2">
+                <input type="text" name="name" class="form-input block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded-lg focus:outline-none focus:bg-white" id="name" placeholder="Domain name" required>
+                <div class="input-group-prepend">.us.kg</div>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Check</button>
+            </div>
+        </form>
+        <br>
+        <p>Domain name unavailable? Have a question? Contact: <a href="mailto:contact@nic.us.kg" class="text-blue-500">contact@nic.us.kg</a><br>If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose" class="text-blue-500" target="_blank">Issue Report</a><br></p>
+    </div>
+</body>
+</html>

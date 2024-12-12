@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US.KG Account Management System</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #edf2f7;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 20px;
+            color: #1a202c;
+        }
+        .footer {
+            background-color: #1a202c;
+            color: #cbd5e0;
+            padding: 20px;
+            font-size: 14px;
+            border-radius: 0 0 12px 12px;
+            margin-top: auto;
+        }
+        footer a {
+            color: #63b3ed;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .loading-animation {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto 20px;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4">
+        <div class="alert alert-light" role="alert">
+            <strong>Current full name: </strong> <span>{{fullname}}</span><br>
+            <strong>Current username: </strong> <span>{{username}}</span><br>
+            <strong>Current E-Mail: </strong> <span>{{email}}</span><br>
+            <strong>Current phone: </strong> <span>{{phone}}</span><br>
+            <strong>Current address: </strong> <span>{{address}}</span>
+        </div>
+        <form id="userEditForm" action="/auth/user/edit" method="POST">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                <input type="text" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" placeholder="Username" value="{{username}}" required disabled>
+                <small id="usernameError" class="text-red-500"></small>
+            </div>
+            <div class="mb-4">
+                <label for="fullname" class="block text-gray-700 text-sm font-bold mb-2">Legal full name</label>
+                <input type="text" name="fullname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fullname" placeholder="Michael Johnson" value="{{fullname}}" required disabled>
+                <small id="fullnameError" class="text-red-500"></small>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-Mail</label>
+                <small class="text-gray-600">Using a temporary email may result in the suspension of your account.</small>
+                <input type="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" placeholder="example@nic.us.kg" value="{{email}}" required>
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone (format: +1-8559805959)</label>
+                <input type="text" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" placeholder="+1-8559805959" value="{{phone}}" required>
+                <small id="phoneError" class="text-red-500"></small>
+            </div>
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Full Address</label>
+                <textarea id="address" name="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="1000 Santa Monica Blvd, Santa Monica, CA 90401, United States" required>{{address}}</textarea>
+                <small id="addressError" class="text-red-500"></small>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                <input type="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" placeholder="Password" autocomplete="off" required>
+                <small id="passwordHelp" class="form-text text-gray-600">The password must be more than 8 characters long and include uppercase and lowercase letters as well as numbers.</small>
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="updateButton" disabled>Update</button>
+            </div>
+        </form>        
+    </div>
+    <footer class="footer">
+        <div class="text-center">
+            <small>
+                By continuing you agree to our <a href="https://nic.us.kg/terms-of-service/">Terms of Service</a>, <a href="https://nic.us.kg/privacy-policy/">Privacy Policy</a>, and <a href="https://nic.us.kg/acceptable-use-policy/">Acceptable Use Policy</a>.<br>
+                If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose" target="_blank">Issue Report</a><br>
+            </small>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const usernameInput = document.getElementById('username');
+            const fullnameInput = document.getElementById('fullname');
+            const phoneInput = document.getElementById('phone');
+            const addressInput = document.getElementById('address');
+            const passwordInput = document.getElementById('password');
+            const updateButton = document.getElementById('updateButton');
+
+            usernameInput.addEventListener('input', validateForm);
+            fullnameInput.addEventListener('input', validateForm);
+            phoneInput.addEventListener('input', validateForm);
+            addressInput.addEventListener('input', validateForm);
+            passwordInput.addEventListener('input', validateForm);
+
+            function validateForm() {
+                let isValid = true;
+
+                // Validate Username
+                if (usernameInput.value.length < 5) {
+                    document.getElementById('usernameError').innerText = 'Username must be at least 5 characters long.';
+                    isValid = false;
+                } else {
+                    document.getElementById('usernameError').innerText = '';
+                }
+
+                // Validate Legal Full Name
+                if (!fullnameInput.value.includes(' ')) {
+                    document.getElementById('fullnameError').innerText = 'Legal full name must contain at least one space.';
+                    isValid = false;
+                } else {
+                    document.getElementById('fullnameError').innerText = '';
+                }
+
+                // Validate Phone Number
+                const phoneRegex = /^\+\d{1,3}-\d{4,}$/;
+                if (!phoneRegex.test(phoneInput.value)) {
+                    document.getElementById('phoneError').innerText = 'Phone number must be in the format +1-8559805959 and contain at least 4 digits.';
+                    isValid = false;
+                } else {
+                    document.getElementById('phoneError').innerText = '';
+                }
+
+                // Validate Address
+                const addressRegex = /^[A-Za-z0-9\s,]*$/;
+                if (addressInput.value.length < 20 || (addressInput.value.match(/,/g) || []).length < 2 || !addressRegex.test(addressInput.value)) {
+                    document.getElementById('addressError').innerText = 'Address must be at least 20 characters long, contain at least 2 commas, and only contain English characters.';
+                    isValid = false;
+                } else {
+                    document.getElementById('addressError').innerText = '';
+                }
+
+                // Validate Password
+                const passwordRequirements = [
+                    { regex: /.{8,}/, message: 'at least 8 characters long' },
+                    { regex: /[A-Z]/, message: 'an uppercase letter' },
+                    { regex: /[a-z]/, message: 'a lowercase letter' },
+                    { regex: /\d/, message: 'a number' }
+                ];
+                const unmetRequirements = passwordRequirements.filter(req => !req.regex.test(passwordInput.value));
+                if (unmetRequirements.length === 0) {
+                    document.getElementById('passwordHelp').innerHTML = '<span class="text-green-500">Password meets all requirements</span>';
+                } else {
+                    const messages = unmetRequirements.map(req => req.message).join(', ');
+                    document.getElementById('passwordHelp').innerHTML = `<span class="text-red-500">Password must include: ${messages}</span>`;
+                    isValid = false;
+                }
+
+                updateButton.disabled = !isValid;
+            }
+        });
+    </script>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

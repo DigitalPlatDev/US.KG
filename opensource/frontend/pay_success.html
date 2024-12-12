@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/static/css/font.css">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .checkout-container {
+        max-width: 1000px;
+        margin: 10% auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+      }
+      .container img {
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .container img.show {
+        opacity: 1;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .image-animation {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>Successful purchase!</title>
+</head>
+<body>
+  <div class="checkout-container">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Successful purchase!</span>
+      </div>
+    </nav>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thanks!</font></font></h1>
+        <p class="col-md-8 fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font><font style="vertical-align: inherit;">Your domain name has been successfully created and submitted to the root DNS. Kindly allow up to 20 minutes or longer for the domain name resolution record and registration to take effect.</font></font></p>
+      </div>
+    </div>
+    <div class="alert alert-light" role="alert">
+      <div class="container">
+        <img id="image" src="/static/img/completed.png" alt="completed" width="200" height="200" class="image-animation">
+      </div>
+      <h3>The domain name will be added to your list, and you'll have full control to manage and operate it.</h3>
+    </div>
+    <button class="btn btn-primary" onclick="window.location.href='/panel/overview'">Back to panel</button>
+    <footer>
+      <div class="alert alert-light" role="alert">
+        <br>
+        If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose">Issue Report</a><br>
+        <br>
+        DigitalPlat Foundation
+      </div>
+    </footer>
+  </div>
+  <script src="/static/js/bootstrap.bundle.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var image = document.getElementById('image');
+      image.classList.add('show');
+    });
+  </script>
+        <script>
+          window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      </script>
+      <script defer src="/_vercel/insights/script.js"></script>
+      <script>
+          window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+      </script>
+      <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

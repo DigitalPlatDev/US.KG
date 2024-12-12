@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalPlat Domain Registry and Management Authority</title>
+    <link rel="icon" type="image/jpeg" href="/static/img/logo.jpg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha" async defer></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #edf2f7;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 20px;
+            color: #1a202c;
+        }
+        .google-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+            background-color: #e2e8f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .google-button:hover {
+            background-color: #cbd5e0;
+        }
+        .footer {
+            background-color: #1a202c;
+            color: #cbd5e0;
+            padding: 20px;
+            font-size: 14px;
+            border-radius: 0 0 12px 12px;
+            margin-top: auto;
+        }
+        footer a {
+            color: #63b3ed;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .loading-animation {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto 20px;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .email-display {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .email-display .material-symbols-outlined {
+            font-size: 40px;
+            color: #1a202c;
+            margin-right: 10px;
+        }
+        .email-display p {
+            flex-grow: 1;
+            margin: 0;
+            font-size: 1rem;
+            color: #1a202c;
+        }
+        .email-display a {
+            color: #3182ce;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="/static/img/logo.jpg" alt="DigitalPlat Domain Registry and Management Authority">
+        </div>
+        <div class="title">DigitalPlat Domain Registry and Management Authority</div>
+    </div>
+    <div class="container mx-auto px-4">
+        <div id="loading" class="loading-animation"></div>
+        <form id="loginForm" action="/auth/login" method="POST">
+            <div id="step1">
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-Mail</label>
+                    <input type="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+            <div id="step2" class="hidden opacity-0 transition-opacity duration-500 ease-in-out">
+                <div class="email-display">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <p id="displayEmail" class="text-gray-700"></p>
+                    <a href="javascript:void(0)" onclick="editEmail()">Edit</a>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <input type="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" placeholder="Enter your password" required>
+                </div>
+                <!-- Cloudflare Turnstile reCAPTCHA -->
+                <div class="g-recaptcha mb-4" data-sitekey="0x4AAAAAAAxuMrGCYFcOwd1N"></div>
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Login
+                    </button>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <small>Don't have an account? <a href="/auth/register" class="text-blue-500">Sign up</a> now!</small><br>
+                <small>Forgot password? <a href="/auth/reset-password" class="text-blue-500">Reset Password</a></small>
+            </div>
+        </form>
+        <div class="text-center mt-4">
+            <a class="google-button" href="/auth/login/google" role="button">
+                <img width="20px" alt="Google sign-in" src="/static/img/login/glogo.webp" />
+                Sign in with Google
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="text-center">
+            <small>
+                By continuing you agree to our <a href="https://nic.us.kg/terms-of-service/">Terms of Service</a>, <a href="https://nic.us.kg/privacy-policy/">Privacy Policy</a>, and <a href="https://nic.us.kg/acceptable-use-policy/">Acceptable Use Policy</a>.<br>
+                If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose">Issue Report</a><br>
+                The 'Sign in with Google' is currently only accessible for accounts registered with Gmail
+            </small>
+        </div>
+    </footer>
+    
+    <script>
+        function nextStep() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                document.getElementById('step1').classList.add('hidden');
+                document.getElementById('loading').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                    const step2 = document.getElementById('step2');
+                    document.getElementById('displayEmail').innerText = email;
+                    step2.classList.remove('hidden');
+                    step2.classList.add('opacity-100');
+                }, 600); // Simulate a loading time of 0.6 second
+            }
+        }
+
+        function editEmail() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+
+        document.getElementById('email').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                nextStep();
+            }
+        });
+    </script>
+</body>
+</html>

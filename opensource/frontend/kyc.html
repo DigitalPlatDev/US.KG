@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="/static/img/logo.jpg">
+    <title>KYC Form</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #edf2f7;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 20px;
+            color: #1a202c;
+        }
+        .footer {
+            background-color: #1a202c;
+            color: #cbd5e0;
+            padding: 20px;
+            font-size: 14px;
+            border-radius: 0 0 12px 12px;
+            margin-top: auto;
+        }
+        footer a {
+            color: #63b3ed;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: #f56565;
+            font-size: 0.875rem;
+        }
+        .option-description {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f7fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="/static/img/logo.jpg" alt="US.KG Domain Registry and Management Authority">
+        </div>
+        <div class="title">US.KG KYC</div>
+    </div>
+    <div class="container mx-auto px-4">
+        <h2 class="mb-4 text-xl font-semibold">US.KG KYC </h2>
+        <h3 class="mb-2 text-xl font-semibold">KYC has been reopened for free to approved email suffixes</h3>
+        <!-- Collapsible section button -->
+        <p>
+            <button id="toggleButton" class="bg-blue-500 text-white px-4 py-2 rounded">
+                On October 16, 2024 (Click to Expand Details)
+            </button>
+        </p>
+        <!-- Content to be collapsed/expanded -->
+        <div id="collapsibleContent" class="hidden">
+            <p>
+                We regret to inform you that we have temporarily suspended the KYC process.
+                <br><br>
+                On October 16, 2024 (UTC), we received an official warning email from .KG (the parent registry of US.KG), notifying us that the US.KG domain was being used in an attack against a bank. The bank’s administrator contacted the .KG registry, requesting the immediate suspension and blocking of the US.KG domain. However, we immediately took action to block the related subdomains. The registry administrator informed us that as long as we cooperated in the effort to combat the abuse of domains for criminal purposes, they "don't take down US.KG." In response, we shut down the KYC servers immediately. Prior to this, we had already received several emails from the .KG registry, as well as numerous reports from security companies, informing us that our subdomains were being used for a range of illegal activities, including but not limited to cybercrime, hacking, bank attacks, phishing sites, and malware servers. It has been an exhausting task to continuously block malicious websites while maintaining the good reputation of our domain, and we have kept in constant communication with the .KG registry.
+                <br><br>
+                We understand that if things continue as they are, the US.KG domain will be at serious risk. Our mission is to provide free domains to everyone, but unfortunately, US.KG has become a target for criminal organizations using it for illegal purposes. The domain has also been added to several “dangerous site” blacklists. To get it removed from these lists, we must clean up all domains associated with criminal activity. We originally adopted a relaxed KYC process to allow everyone to easily establish an online presence, but we have since realized that many people use fake KYC information, fake identity generators, and other methods to bypass the KYC verification process, with some registering numerous accounts. We did not scrutinize these KYC submissions, and most of the documents uploaded have been deleted. However, this has made US.KG vulnerable to criminal misuse.
+                <br><br>
+                We have always been committed to providing free and reliable services and are proud to have served so many users with free domain names. Of course, we intend to continue doing so, but now is the time to take action against these illegal activities. Crimes not only bring harm to others but also put US.KG and its subdomains in continuous jeopardy.
+                <br><br>
+                Our monthly donations are minimal, with DigitalPlat Foundation receiving just a few dollars per month on average, making it difficult to maintain free domain services for such a large user base. (As a side note, US.KG’s founder, Edward, has personally donated significant funds to the project out of his own pocket.) We simply cannot afford to use third-party KYC services at this time. We do not yet have a concrete plan for updating the KYC process, but if you have any suggestions, please feel free to contact us at contact@nic.us.kg.
+                <br><br>
+                Despite the challenges, we are committed to continuing our service. No matter how difficult it becomes, we will not give up. We are genuinely proud to have helped so many people obtain their own free domain names. This situation has simply made us a target for cybercriminals.
+                <br><br>
+                Due to the workload involved, we are unsure when we will be able to resume KYC. However, if we cancel KYC, it is foreseeable that US.KG will be heavily abused, and both the US.KG domain and its subdomains will be at significant risk.
+                <br><br>
+                In the meantime, you can choose to donate $1 or more to the DigitalPlat Foundation to create a new account. This will help prevent individuals from registering large numbers of accounts for illegal purposes before the new KYC system is implemented, and ensure that those who genuinely need a domain can still register. Your donation will be entirely used to support our service operations and will be 100% allocated to non-profit purposes. All donations will be overseen by the Hack Foundation and the IRS, strictly in compliance with U.S. tax laws under the 501(c)(3) provisions. Every dollar will be invested back into the operation and maintenance of US.KG, including DNS servers, the US.KG Dashboard Server, APIs, Domain renewal, and even email services. (Once you log in, select the "Donate $1 or More for Verification" option to continue KYC verification, GitHub account required). Additionally, if you’d like to support my personal development work, you can buy me (Edward Hsing) a pizza to support my work on developing and maintaining US.KG at https://buymeacoffee.com/edwarddev.
+                <br><br>
+                Alternatively, you can wait until we launch the new KYC system and then complete KYC for free.
+                <br><br>
+                Accounts that have already completed KYC and comply with the Acceptable Use Policy will not be affected in any way, and you will never be charged. All activated accounts are promised to remain free forever.
+                        </p>
+        </div>
+        <br>
+
+        <br><br>
+        <p>----------------------------</p>
+However, starting from October 22, 2024, if your email domain is on the approved list, you can continue using GitHub's free KYC option (if you qualify, the GitHub KYC option below should be available). The approved domains are:
+
+gmail.com  
+zoho.com  
+outlook.com  
+yahoo.com  
+yandex.com  
+hotmail.com  
+icloud.com  
+163.com  
+126.com  
+qq.com
+<br>
+        <a href="/user/request_delete" class="text-blue-500">Click here to delete my account.</a>
+
+        <div class="mb-4">
+            <label for="docs" class="block text-gray-700 text-sm font-bold mb-2">Select KYC Method</label>
+            <small class="block text-gray-600 mb-2">Please select the method you want to use for KYC verification.</small>
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="docs" name="docs" required>
+                <option value="" disabled selected>Select a method</option>
+                <option value="donation">Donate $1 or More for Verification</option>
+                <option value="github" {{approved}}>GitHub KYC Verification (Approved mail suffixes only)</option>
+                <option value="default" disabled>Temporarily Unavailable: Upload KYC Document(Not Recommended & Legacy)</option>
+            </select>
+        </div>
+        <div id="optionDescription" class="option-description hidden"></div>
+        <div id="optionLink" class="mt-4"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="text-center">
+            <small>
+                By continuing you agree to our <a href="https://nic.us.kg/terms-of-service/" class="text-blue-500">Terms of Service</a>, <a href="https://nic.us.kg/privacy-policy/" class="text-blue-500">Privacy Policy</a>, and <a href="https://nic.us.kg/acceptable-use-policy/" class="text-blue-500">Acceptable Use Policy</a>.<br>
+                If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose">Issue Report</a><br>
+            </small>
+        </div>
+    </footer>
+
+    <!-- Script to toggle collapsible content -->
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var content = document.getElementById('collapsibleContent');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                this.textContent = 'Click to Collapse Details';
+            } else {
+                content.classList.add('hidden');
+                this.textContent = 'On October 16, 2024 (Click to Expand Details)';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const docsSelect = document.getElementById('docs');
+            const optionDescription = document.getElementById('optionDescription');
+            const optionLink = document.getElementById('optionLink');
+
+            docsSelect.addEventListener('change', (event) => {
+                const selectedOption = event.target.value;
+                optionDescription.classList.remove('hidden');
+
+                let description = '';
+                let link = '';
+
+                switch (selectedOption) {
+                    case 'default':
+                        description = '(We are phasing out document KYC (Legacy, outdated option) and recommend using other KYC options instead.) Upload your documents to our default server for quick verification. Your document must include your legal full name. We use AI technology to verify the authenticity of KYC documents. Please ensure the uploaded document is clean and clear for automatic recognition. For the best results, we recommend using scanned copies. <br> <strong> This option is not available for EEA residents. </strong> We may transfer your documents across borders.';
+                        link = '<a href="https://kyc1.register.us.kg/user/kyc?data={{encrypt_username}}" class="text-blue-500">Proceed to Default Server (Click me to redirect KYC Page)</a>';
+                        break;
+                    case 'donation':
+                        description = `1. Click "Proceed to Donate" enter a donation amount of at least US $1, and use the same email address you registered for your US.KG account. In the "Message" field, enter your GitHub username, then click "Next" to enter your payment information (Apple Pay is available when using Apple Safari).<br>
+                        2. Click "Proceed to GitHub" and submit your request directly (please submit only once and do so promptly after making your donation).<br>
+                        3. Just relax and wait—your request will be processed shortly.<br>
+                        4. Log into your account and register up to 3 domain names (more can be requested if used responsibly).`;
+                        link = '<a href="https://hcb.hackclub.com/donations/start/digitalplat" class="text-blue-500">Proceed to Donate</a><br><a href="https://github.com/DigitalPlatDev/US.KG/issues/new?assignees=&labels=&projects=&template=github-donate-kyc.md&title=Request%20GitHub%20Donate%20KYC-{{username}}" class="text-blue-500">Proceed to GitHub</a>';
+                        break;
+                    case 'github':
+                        description = 'GitHub KYC: If you have a GitHub account, submit your account information without additional documents. (<b>We currently do not have any requirements for your GitHub account, you can submit verification directly, only approved mail suffixes</b>)<br><br>1. Please star our repository first (repository link: <a href="https://github.com/DigitalPlatDev/US.KG" style="text-decoration: underline;">https://github.com/DigitalPlatDev/US.KG</a>) (Learn how to star a repository: <a href="https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars" style="text-decoration: underline;">https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars</a>)<br><br>2. Create a new issue with the title "Request GitHub KYC-{{username}}" and fill out the required information (or just click Proceed to GitHub link), then submit the issue.<br><b>We will review the potentially unsafe KYC. Your request is typically processed within a few hours.</b>';
+                        link = '<a href="https://github.com/DigitalPlatDev/US.KG/issues/new?assignees=&labels=&projects=&template=github-kyc.md&title=Request%20GitHub%20KYC-{{username}}" class="text-blue-500">Proceed to GitHub</a>';
+                        break;
+                    default:
+                        description = '';
+                        link = '';
+                }
+
+                optionDescription.innerHTML = description;
+                optionLink.innerHTML = link;
+            });
+        });
+    </script>
+</body>
+</html>

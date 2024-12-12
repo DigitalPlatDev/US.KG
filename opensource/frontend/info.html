@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFO!</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #edf2f7;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      text-align: center;
+    }
+    .header__title h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .header__text {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+    .header__button {
+      background-color: #1a202c;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+    .header__button:hover {
+      background-color: #2d3748;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="content">
+      <div class="header">
+        <div class="header__title">
+          <h1 class="header__h1">Woah</h1>
+        </div>
+        <p class="header__text">{{info}}</p>
+        <a class="header__button" href="#" onclick="history.back(); return false;">Back</a>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-fountain@2/tsparticles.preset.fountain.bundle.min.js"></script>
+</body>
+</html>
